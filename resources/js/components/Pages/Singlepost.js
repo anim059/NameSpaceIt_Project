@@ -19,7 +19,7 @@ function Singlepost(){
     });
 
     const fetchpost = async () =>{
-        await axios.get(`http://127.0.0.1:8000/api/singleblog/${slug}`)
+        await axios.get(`https://userblog01.herokuapp.com/api/singleblog/${slug}`)
           .then(res=>{
               console.log(res.data.data.title);
               setPosts({
