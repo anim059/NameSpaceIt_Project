@@ -46,7 +46,7 @@ function Singlepost(){
                 <div className="singlepost-col l8 s12">
   
                 <div className="singlepost-card-4 singlepost-margin singlepost-white">
-                    <img src={`http://127.0.0.1:8000/${posts.blogImage}`} alt="Nature" className='singlepost-image'/>
+                    <img src={`https://userblog01.herokuapp.com/${posts.blogImage}`} alt="Nature" className='singlepost-image'/>
                     <div className="singlepost-container">
                     <h3><b>{posts.title}</b></h3>
                     <h5>Title description</h5>

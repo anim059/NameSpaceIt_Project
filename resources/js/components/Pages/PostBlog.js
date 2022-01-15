@@ -11,6 +11,8 @@ export default function PostBlog() {
         blogImage:'',
     });
 
+    const [alert,setAlert] = useState(false);
+
     
 
     const saveinput = async (e) =>{
@@ -28,9 +30,28 @@ export default function PostBlog() {
                 body:''
             });
             document.querySelector("#BlogForm").reset();
+            //<Redirect to="/" />
+            console.log(`initializing interval`);
+            const interval = setInterval(() => {
+                setAlert(true);
+            }, 2000);
+
+            return () => {
+                console.log(`clearing interval`);
+                clearInterval(interval);
+                document.querySelector("#BlogForm").reset();
+            };
         }
-     
         
+    }
+   
+  
+   const showSucessmessage = () =>{
+        return(
+            <div className="alert alert-primary " role="alert">
+                        This is a primary alert—check it out!
+            </div>
+        )
     }
 
     return(
@@ -39,7 +60,11 @@ export default function PostBlog() {
          
                 <div className="Form-background">
                     <div className="container">
+                        {alert &&
+                        showSucessmessage()
+                        }
                         <div className='row'>
+                        
                             <h3 className="Form-heading">Post Your Blog</h3>
                                 <form onSubmit={saveinput} id="BlogForm">
                                     <div className="mb-3">
