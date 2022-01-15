@@ -5,17 +5,17 @@ import { useLocation } from 'react-router-dom';
 import Header from './Header';
 import './PostBlog.css';
 function UpdateBlogPost() {
-
+   //*********set data for post blog ******///// 
     const [data,setData] = useState({
         title:'',
         body:'',
         blogImage:'',
     });
-
+    //*********used uselocation() for get the Link props ******///// 
     const location = useLocation()
     const { id } = location.state
     console.log(id);
-
+    //*********updatepost funtion for get the unique id blog values ******///// 
     const updatepost = async () =>{
         await axios.get(`https://userblog01.herokuapp.com/api/blogs/${id}`)
           .then(res=>{
@@ -37,7 +37,7 @@ function UpdateBlogPost() {
       },[])
 
     
-
+    //*********saveinput funtion for save blog values ******///// 
     const saveinput = async (e) =>{
         e.preventDefault();
         console.log(data);
@@ -45,7 +45,7 @@ function UpdateBlogPost() {
         blogdata.append('title', data.title)
         blogdata.append('body', data.body)
         blogdata.append('blogImage', data.blogImage)
-        const res = await axios.put(`https://userblog01.herokuapp.com/api/blogs/${id}`,blogdata);
+        const res = await axios.put(`http://127.0.0.1:8000/api/blogs/${id}`,blogdata);
         if(res.data.status === 200){
             console.log(res.data.message);
             setData({

@@ -17,7 +17,7 @@ class BlogController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-
+    //********* index function for return all blog data  ******/////
     public function index()
     {
         //
@@ -45,6 +45,7 @@ class BlogController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+    //********* store function for store unique blog data  ******/////
     public function store(Request $request)
     {
         
@@ -108,6 +109,7 @@ class BlogController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+    //********* show function for show single unique blog data by id  ******/////
     public function show($id)
     {
         $blogdata = Blog::find($id);
@@ -117,7 +119,8 @@ class BlogController extends Controller
             'data'=>$blogdata
         ]);
     }
-
+    
+    //********* SinglePostshow function for show single unique blog data by slug  ******/////
     public function SinglePostshow($slug)
     {
         $blogdata = Blog::where('slug', $slug)->first();
@@ -146,6 +149,8 @@ class BlogController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
+    //********* update function for update unique blog data  ******/////
     public function update(Request $request, $id)
     {
         $blogdata = Blog::find($id);
@@ -208,6 +213,7 @@ class BlogController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+     //********* destroy function for destroy unique blog data  ******/////
     public function destroy($id)
     {
         $blogdata = Blog::find($id);

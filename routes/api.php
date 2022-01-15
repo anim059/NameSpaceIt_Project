@@ -16,11 +16,14 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-
+//********* this route is for all blogcontroller function  ******/////
 Route::apiResource('blogs','API\BlogController');
 
+//********* this route is for sanctum auth controller function  ******/////
 Route::post('/create-account',[AuthenticationController::class,'createAccount']);
 Route::post('/signin',[AuthenticationController::class,'login']);
+
+//********* this route is for single blog data show by slug  ******/////
 Route::get('/singleblog/{slug}',[BlogController::class,'SinglePostshow']);
 
 

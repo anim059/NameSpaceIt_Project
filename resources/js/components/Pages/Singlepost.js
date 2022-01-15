@@ -7,17 +7,17 @@ import Header from './Header';
 
 
 function Singlepost(){
-
+    //*********used uselocation() for get the Link props ******///// 
     const location = useLocation()
     const { slug } = location.state;
     console.log(slug);
-
+   //*********state data for get post blog ******/////
     const [posts, setPosts] = useState({
         title:"",
         body:"",
         blogImage:"",
     });
-
+    //********* fetchdata function for fetch single blog data  ******/////
     const fetchpost = async () =>{
         await axios.get(`https://userblog01.herokuapp.com/api/singleblog/${slug}`)
           .then(res=>{

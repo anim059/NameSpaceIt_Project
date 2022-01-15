@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom';
 import Header from './Header';
 import './PostBlog.css';
 export default function PostBlog() {
-    
+    //*********set data for post blog ******///// 
     const [data,setData] = useState({
         title:'',
         body:'',
@@ -13,6 +13,7 @@ export default function PostBlog() {
 
     
 
+    //*********save function  ******///// 
     const saveinput = async (e) =>{
         //e.preventDefault();
         console.log(data);
@@ -27,11 +28,13 @@ export default function PostBlog() {
                 title:'',
                 body:''
             });
+            setAlert(res.data.status);
             document.querySelector("#BlogForm").reset();
         }
-     
-        
     }
+
+  
+
 
     return(
         <>
@@ -39,6 +42,7 @@ export default function PostBlog() {
          
                 <div className="Form-background">
                     <div className="container">
+                        
                         <div className='row'>
                             <h3 className="Form-heading">Post Your Blog</h3>
                                 <form onSubmit={saveinput} id="BlogForm">

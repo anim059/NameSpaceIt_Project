@@ -9,12 +9,13 @@ import UpdateBlogPost from './UpdateBlogPost';
 
  function Home() {
  
+   //********* all state declaration  ******///// 
   const [posts, setPosts] = useState([]);
   const [pages, setPages] = useState({});
   const [value, setValue] = useState("");
 
    
-
+  //********* fetchdata function for fetch all blog data  ******/////
   const fetchdata = async (pageNumber = 1) =>{
     await axios.get(`https://userblog01.herokuapp.com/api/blogs?page=${pageNumber}`)
       .then(res=>{
@@ -50,6 +51,7 @@ import UpdateBlogPost from './UpdateBlogPost';
     console.log(data.blogImage);
   }
 */
+//********* DeletePost function for delete blog   ******/////
   const DeletePost = async (props) =>{
     console.log(props);
     await axios.delete(`https://userblog01.herokuapp.com/api/blogs/${props}`)
