@@ -1,0 +1,26 @@
+.Form-background{
+    display: block;
+    background-color: rgb(197, 216, 241);
+    border: 5px solid rgb(112, 112, 235);
+    padding: 20px;
+    max-width: 50%;
+    margin-top:50px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.Form-heading{
+    position: relative;
+    margin-bottom: 30px;
+    font-weight: 400;
+    font-family: 'Times New Roman', Times, serif;
+}
+.Form-heading::after{
+    content: '';
+    position: absolute;
+    height: 3px;
+    width: 55%;
+    background-color: white;
+    bottom: -8px;
+    left: 12px;
+}
+
