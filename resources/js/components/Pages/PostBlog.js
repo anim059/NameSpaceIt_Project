@@ -16,7 +16,7 @@ export default function PostBlog() {
     
 
     const saveinput = async (e) =>{
-        e.preventDefault();
+        //e.preventDefault();
         console.log(data);
         const blogdata = new FormData() 
         blogdata.append('title', data.title)
@@ -30,17 +30,15 @@ export default function PostBlog() {
                 body:''
             });
             document.querySelector("#BlogForm").reset();
-            //<Redirect to="/" />
+            
             console.log(`initializing interval`);
             const interval = setInterval(() => {
                 setAlert(true);
             }, 2000);
 
-            return () => {
-                console.log(`clearing interval`);
-                clearInterval(interval);
-                document.querySelector("#BlogForm").reset();
-            };
+            console.log(`clearing interval`);
+            clearInterval(interval);
+            document.querySelector("#BlogForm").reset();
         }
         
     }
