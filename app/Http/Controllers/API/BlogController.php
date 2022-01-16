@@ -48,7 +48,7 @@ class BlogController extends Controller
     //********* store function for store unique blog data  ******/////
     public function store(Request $request)
     {
-        
+        $blogCount = Blog::all();
         $requestData = $request->all();
         $validator = \Validator::make($requestData,[ 
             'title' => 'required',
@@ -68,9 +68,10 @@ class BlogController extends Controller
         }
         $blog = new Blog();
         $blog->title = $request->title;
-        $blogtitle = DB::table('blogs')->where('title', $blog->title)->first();
-        if($blogtitle){
-            $blog->slug = str::slug($request->title.'-'.$blogtitle->id );
+        $blogslug = DB::table('blogs')->where('slug', $blog->title)->first();
+        $count = sizeof($blogCount);
+        if($blogslug){
+            $blog->slug = str::slug($request->title.'-'.$count );
         }else{
             $blog->slug = str::slug($request->title);
         }
@@ -179,7 +180,6 @@ class BlogController extends Controller
         }
         $blog = Blog::find($id);
         $blog->title = $request->title;
-        $blog->slug = $blog->slug;
         $blog->body = $request->body;
         $image=$request->hasFile('blogImage');
         if($image){
@@ -198,10 +198,11 @@ class BlogController extends Controller
                 'data'=>$blog
             ]);
         }else{
+        $blog->blogImage = $blog->blogImage;    
         $blog->save();
         return response()->json([
-            'status' => 404,
-            'message' => "failed",
+            'status' => 200,
+            'message' => "successfull",
             'data'=>$blog
         ]);
     }
@@ -225,3 +226,4 @@ class BlogController extends Controller
         ]);
     }
 }
+

@@ -15,20 +15,20 @@ export default function PostBlog() {
 
     //*********save function  ******///// 
     const saveinput = async (e) =>{
-        //e.preventDefault();
+        e.preventDefault();
         console.log(data);
         const blogdata = new FormData() 
         blogdata.append('title', data.title)
         blogdata.append('body', data.body)
         blogdata.append('blogImage', data.blogImage)
-        const res = await axios.post('https://userblog01.herokuapp.com/api/blogs',blogdata);
+        const res = await axios.post('http://127.0.0.1:8000/api/blogs',blogdata);
         if(res.data.status === 200){
             console.log(res.data.message);
             setData({
                 title:'',
                 body:''
             });
-            setAlert(res.data.status);
+            //setAlert(res.data.status);
             document.querySelector("#BlogForm").reset();
         }
     }

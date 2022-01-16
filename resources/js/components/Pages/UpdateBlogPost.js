@@ -17,7 +17,7 @@ function UpdateBlogPost() {
     console.log(id);
     //*********updatepost funtion for get the unique id blog values ******///// 
     const updatepost = async () =>{
-        await axios.get(`https://userblog01.herokuapp.com/api/blogs/${id}`)
+        await axios.get(`http://127.0.0.1:8000/api/blogs/${id}`)
           .then(res=>{
               console.log(res.data.data.title);
               setData({
