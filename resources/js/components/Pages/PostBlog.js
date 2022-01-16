@@ -15,7 +15,7 @@ export default function PostBlog() {
 
     //*********save function  ******///// 
     const saveinput = async (e) =>{
-        //e.preventDefault();
+        e.preventDefault();
         console.log(data);
         const blogdata = new FormData() 
         blogdata.append('title', data.title)
