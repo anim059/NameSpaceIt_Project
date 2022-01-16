@@ -17,7 +17,7 @@ import UpdateBlogPost from './UpdateBlogPost';
    
   //********* fetchdata function for fetch all blog data  ******/////
   const fetchdata = async (pageNumber = 1) =>{
-    await axios.get(`http://127.0.0.1:8000/api/blogs?page=${pageNumber}`)
+    await axios.get(`https://userblog01.herokuapp.com/api/blogs?page=${pageNumber}`)
       .then(res=>{
           console.log(res.data.data.current_page);
           setPosts(res.data.data.data);
@@ -54,7 +54,7 @@ import UpdateBlogPost from './UpdateBlogPost';
 //********* DeletePost function for delete blog   ******/////
   const DeletePost = async (props) =>{
     console.log(props);
-    await axios.delete(`http://127.0.0.1:8000/api/blogs/${props}`)
+    await axios.delete(`https://userblog01.herokuapp.com/api/blogs/${props}`)
           .then(res=>{
             if(res.data.status===200){
               console.log(res.data.message);
@@ -83,7 +83,7 @@ import UpdateBlogPost from './UpdateBlogPost';
                
                   <div className="Blog-body-content" key={posts.slug}>
                     <div className="card" >
-                      <img className="content-img " src={`http://127.0.0.1:8000/${posts.blogImage}`}/>
+                      <img className="content-img " src={`https://userblog01.herokuapp.com/${posts.blogImage}`}/>
                         <div className="card-body">
                           <h5 className="card-title"><Link Link  to='/Singleblog'
                            state={{ slug: posts.slug }} >{posts.title}</Link></h5>

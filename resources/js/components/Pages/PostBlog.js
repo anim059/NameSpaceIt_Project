@@ -21,7 +21,7 @@ export default function PostBlog() {
         blogdata.append('title', data.title)
         blogdata.append('body', data.body)
         blogdata.append('blogImage', data.blogImage)
-        const res = await axios.post('http://127.0.0.1:8000/api/blogs',blogdata);
+        const res = await axios.post('https://userblog01.herokuapp.com/api/blogs',blogdata);
         if(res.data.status === 200){
             console.log(res.data.message);
             setData({

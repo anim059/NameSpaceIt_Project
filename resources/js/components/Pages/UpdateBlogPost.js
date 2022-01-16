@@ -17,7 +17,7 @@ function UpdateBlogPost() {
     console.log(id);
     //*********updatepost funtion for get the unique id blog values ******///// 
     const updatepost = async () =>{
-        await axios.get(`http://127.0.0.1:8000/api/blogs/${id}`)
+        await axios.get(`https://userblog01.herokuapp.com/api/blogs/${id}`)
           .then(res=>{
               console.log(res.data.data.title);
               setData({
@@ -45,7 +45,7 @@ function UpdateBlogPost() {
         blogdata.append('title', data.title)
         blogdata.append('body', data.body)
         blogdata.append('blogImage', data.blogImage)
-        const res = await axios.put(`http://127.0.0.1:8000/api/blogs/${id}`,blogdata);
+        const res = await axios.put(`https://userblog01.herokuapp.com/api/blogs/${id}`,blogdata);
         if(res.data.status === 200){
             console.log(res.data.message);
             setData({
